@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OChem Complete – Organic Chemistry Flashcards & Mechanisms</title>
+  <meta name="description" content="OChem Complete: the sleek organic chemistry flashcards app covering 100+ reactions and mechanisms for undergrad OChem and the MCAT." />
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true" style="width:48px; height:48px; border-radius:12px; overflow:hidden; background:#f5f5f5; display:flex; align-items:center; justify-content:center; margin-right:12px;">
+          <img src="icon.png" alt="OChem Complete Logo" style="width:36px; height:36px; object-fit:contain; border-radius:8px;" />
+        </div>
+  <div>OChem Complete</div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#testimonials">Testimonials</a>
+        <a href="#download">Get the App</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <!-- Left column -->
+      <section>
+        <span class="eyebrow">Organic Chemistry • Flashcards • Mechanisms</span>
+        <h1>A complete organic chemistry study guide in your pocket.</h1>
+        <h2 class="subtitle">Created by a Harvard medical student and a chemistry PhD.</h2>
+        <p class="lead" id="lead">
+          Designed to be a complete study guide for college and university level Organic Chemistry students to all the 100+ necessary reactions and mechanisms for a year of organic chemistry and for the MCAT, DAT, PCAT, OAT, GRE or any other preprofessional exam.
+        </p>
+        <div class="cta" id="download">
+          <button class="btn primary">Download the app</button>
+          <button class="btn primary"><a style="color: #f5f5f5;text-decoration: none;" href="https://www.amazon.com/gp/product/B00BUUCB92/ref=olp_product_details?ie=UTF8&me=&seller=">Get the poster</a></button>
+        </div>
+
+        <div class="badges">
+          <span class="badge">100+ reactions</span>
+          <span class="badge">Mechanisms & notes</span>
+          <span class="badge">MCAT/DAT ready</span>
+          <span class="badge">Lightweight & fast</span>
+        </div>
+
+        <section id="features" class="features" aria-label="Key features">
+          <article class="card">
+            <h3>Mechanisms that click</h3>
+            <p>Expert-written explanations for each mechanism.</p>
+          </article>
+          <article class="card">
+            <h3>Affordable pricing</h3>
+            <p>At just $0.99 per month, it's worth it for any serious student.</p>
+          </article>
+          <article class="card">
+            <h3>Extensive content</h3>
+            <p>11 comprehensive categories of reactions.</p>
+          </article>
+        </section>
+
+        <section id="testimonials" class="testimonials" aria-label="Testimonials">
+          <div class="quote">
+            <p>“Amazing! A lot of great info neatly organized with awesome descriptions. I have an exam in a week and a half and will definitely be utilizing this!”</p>
+            <div class="who">— App Store Reviewer</div>
+          </div>
+          <div class="quote">
+            <p>“Fantastic, This app does a remarkable job at simplifying the mechanisms for O-Chem”</p>
+            <div class="who">— App Store Reviewer</div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- Right column: sticky iPhone mock with your screenshot -->
+      <aside class="phone-wrap" aria-label="App preview">
+        <div class="phone-sticky">
+          <div class="phone" role="img" aria-label="Preview of OChem Complete app on a phone">
+            <div class="phone-inner">
+              <div class="notch" aria-hidden="true"></div>
+              <div class="screen">
+                <!-- Replace screenshot.png with your provided image file path -->
+                <img src="screenshot.png" alt="OChem Complete app screenshot" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <h2 style="margin-top:3rem; text-align:center;">Example reaction mechanisms:</h2>
+
+      <!-- Image Carousel: user-controlled arrows, show 3 images at once -->
+      <section id="carousel" style="margin:2rem 0; padding:0 1rem;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:1rem;">
+          <button id="carousel-prev" style="border:none; background:none; font-size:2rem; cursor:pointer;">‹</button>
+          <div id="carousel-container" style="display:flex; gap:1rem; justify-content:center; align-items:center; flex:1;">
+            <!-- images will be injected here -->
+          </div>
+          <button id="carousel-next" style="border:none; background:none; font-size:2rem; cursor:pointer;">›</button>
+        </div>
+      </section>
+      <script>
+        (function() {
+          const images = ['1.png','2.jpg','3.jpg','4.jpeg','5.jpg','6.jpg','7.jpg']; // use user-provided images
+          let idx = 0;
+          const container = document.getElementById('carousel-container');
+          const prevBtn = document.getElementById('carousel-prev');
+          const nextBtn = document.getElementById('carousel-next');
+          function render() {
+            container.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+              const card = document.createElement('div');
+              card.className = 'card';
+              card.style.flex = '0 0 30%';
+              const img = document.createElement('img');
+              img.src = images[(idx + i) % images.length];
+              img.style.width = '100%';
+              img.style.display = 'block';
+              img.style.borderRadius = '8px';
+              card.appendChild(img);
+              container.appendChild(card);
+            }
+          }
+          prevBtn.addEventListener('click', () => { idx = (idx - 1 + images.length) % images.length; render(); });
+          nextBtn.addEventListener('click', () => { idx = (idx + 1) % images.length; render(); });
+          render();
+        })();
+      </script>
+
+    <footer>
+  <div class="tiny">Questions? <a href="mailto:info@OChemComplete.com" style="color:inherit">info@OChemComplete.com</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // Lightweight client-side enhancements
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function subscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      if(!email) return;
+      // Replace with your backend endpoint or mailing list service
+      // Example: fetch('/api/subscribe', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email}) })
+      // For now, just a friendly toast:
+      toast(`Thanks! We'll email ${email} when we launch.`);
+      e.target.reset();
+    }
+
+    function toast(message){
+      const t = document.createElement('div');
+      t.textContent = message;
+      Object.assign(t.style, {
+        position:'fixed', left:'50%', bottom:'24px', transform:'translateX(-50%)',
+        background:'#111', color:'#fff', padding:'12px 16px', borderRadius:'12px',
+        boxShadow:'var(--shadow)', zIndex:9999, fontWeight:'600'
+      });
+      document.body.appendChild(t);
+      setTimeout(()=>{ t.style.opacity='0'; t.style.transition='opacity .5s'; }, 1800);
+      setTimeout(()=> t.remove(), 2400);
+    }
+  </script>
+</body>
+</html>
